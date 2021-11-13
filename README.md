@@ -1,5 +1,4 @@
 # vkcomCaptchaBreaker (Автокапча для vk.com)
-
 [__Оригинальный код от Defasium__](https://github.com/Defasium/vkCaptchaBreaker)
 # Введение
 
@@ -20,7 +19,7 @@
     > Please, note that captcha on login page and promocode page is not supported!
 
 ## Установка:
-1. Скачать расширение с [Релизов](https://github.com/eremeyko/vkcomCaptchaBreaker/releases), либо в целом репозиторий, разницы никакой
+1. Скачать расширение с [Релизов](https://github.com/eremeyko/vkcomCaptchaBreaker/releases) (VKcomAutoCaptcha.zip), либо в целом репозиторий, разницы никакой
 2. Распаковать папку
 3. Перейти в `chrome://extensions/`
 <details>
