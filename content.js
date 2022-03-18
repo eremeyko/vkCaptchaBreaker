@@ -63,7 +63,7 @@ async function recognize_captcha(img, click) {
 
 	if (click) {
 		const img_src = img.src;
-		var submit_button = document.getElementsByClassName('box_controls')[0].getElementsByTagName("table")[0].getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0].getElementsByTagName("td")[1].childNodes[0];
+		var submit_button = document.getElementsByClassName('FlatButton__content')[1];
 
 		submit_button.click();
 			await new Promise(r => setTimeout(r, 500));
