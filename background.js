@@ -13,7 +13,7 @@ chrome.runtime.onInstalled.addListener(function() {
 async function updateIcon(meta) {	
   chrome.storage.sync.get('power', function(data) {
     const current = data.power ^ 1;
-    chrome.action.setIcon(prior.icons[current]);
+    chrome.browserAction.setIcon(prior.icons[current]);
     chrome.storage.sync.set(prior.powers[current], function() {
       console.log('The number is set to ' + current);
     });
@@ -32,7 +32,7 @@ function sendMessage(message, id) {
 }
 
 // Called when the user clicks on the browser action.
-chrome.action.onClicked.addListener(updateIcon);
+chrome.browserAction.onClicked.addListener(updateIcon);
 
 async function messageCallback(request, sender, sendResponse) {
     if (typeof request.data === 'string') {
