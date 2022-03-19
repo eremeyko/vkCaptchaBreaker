@@ -1,27 +1,39 @@
 {
-  "manifest_version": 2,
   "name": "VKcomAutoCaptcha",
-  "description": "Google Chrome Extension adapted for automatic captcha solving on vk.com",
-  "author": "Defasium (https://github.com/Defasium) and Eremey (https://github.com/eremeyko)",
   "version": "1.5",
-  "permissions": ["storage", "tabs"],
-   "background": {
-       "scripts": [
-         "background.js"
-       ],
-       "persistent": false
+  "manifest_version": 3,
+  "minimum_chrome_version": "88",
+  "description": "Google Chrome Extension adapted for automatic captcha solving on vk.com",
+  "homepage_url": "https://github.com/eremeyko/vkcomCaptchaBreaker",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": ["*://vk.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content.js", 
+        "models/captcha_model.onnx", 
+        "models/ctc_model.onnx"],
+      "matches": ["*://vk.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "48": "icon48_0.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48_1.png",
+    "128": "icon128.png"
   },
   "content_scripts": [
     {
       "matches": ["*://vk.com/*"],
+      "run_at": "document_idle",
       "js": ["content.js"]
     }
-  ],
- "icons": {"16": "icon16.png",
-            "48": "icon48_1.png",
-            "128": "icon128.png"},
-  "browser_action": {
-    "default_icon": "icon48_0.png"
-  },
-  "web_accessible_resources": ["models/*.onnx"]
+  ]
 }
