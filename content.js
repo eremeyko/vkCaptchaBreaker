@@ -111,12 +111,14 @@ async function iconCallback(request, sender, sendResponse) {
 
 chrome.runtime.onMessage.addListener(iconCallback);
 
+
 async function manageObserver(mutations, obs) {
 	if (document.getElementsByClassName("box_title").length === 1){
-		document.getElementById("validation_skip").click();
-			await new Promise(r => setTimeout(r, 500));
-	}
-	if (document.getElementsByClassName('captcha').length === 0){
+		if (document.getElementById("validation_skip")) {
+			document.getElementById("validation_skip").click();
+				await new Promise(r => setTimeout(r, 500));
+		}
+	} else if (document.getElementsByClassName('captcha').length === 0){
 		data.flag = true;
 		return;
 	}
