@@ -63,7 +63,11 @@ async function recognize_captcha(img, click) {
 
 	if (click) {
 		const img_src = img.src;
-		var submit_button = document.getElementsByClassName('FlatButton__content')[1];
+		if (document.getElementsByClassName('FlatButton__content')[1].textContent.includes("Отправить")) {
+			var submit_button = document.getElementsByClassName('FlatButton__content')[1];
+		} else {
+			var submit_button = document.getElementsByClassName('FlatButton__content')[2];
+		}
 
 		submit_button.click();
 			await new Promise(r => setTimeout(r, 500));
@@ -108,6 +112,10 @@ async function iconCallback(request, sender, sendResponse) {
 chrome.runtime.onMessage.addListener(iconCallback);
 
 async function manageObserver(mutations, obs) {
+	if (document.getElementsByClassName("box_title").length === 1){
+		document.getElementById("validation_skip").click();
+			await new Promise(r => setTimeout(r, 500));
+	}
 	if (document.getElementsByClassName('captcha').length === 0){
 		data.flag = true;
 		return;
