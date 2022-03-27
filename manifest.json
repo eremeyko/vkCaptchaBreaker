@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "VKcomAutoCaptcha",
-  "description": "Google Chrome Extension adapted for automatic captcha solving on vk.com",
+  "name": "VKAutoCaptcha",
+  "description": "Extension adapted for automatic captcha solving on vk.com",
   "author": "Defasium (https://github.com/Defasium) and Eremey (https://github.com/eremeyko)",
-  "version": "1.5",
-  "permissions": ["storage", "tabs"],
+  "version": "1.6.4",
+  "permissions": ["storage", "tabs", "*://api.vk.com/*", "*://vk.com/*"],
    "background": {
        "scripts": [
          "background.js"
        ],
-       "persistent": false
+       "persistent": true
   },
   "content_scripts": [
     {
@@ -17,11 +17,10 @@
       "js": ["content.js"]
     }
   ],
- "icons": {"16": "icon16.png",
+  "icons": {"16": "icon16.png",
             "48": "icon48_1.png",
             "128": "icon128.png"},
   "browser_action": {
     "default_icon": "icon48_0.png"
-  },
-  "web_accessible_resources": ["models/*.onnx"]
+  }
 }
