@@ -31,10 +31,7 @@
 5. Перенести во окно браузера __Папку__ с расширениями
 
 ### Установка для Firefox
-1. Скачать расширение с [Релизов](https://github.com/eremeyko/vkcomCaptchaBreaker/releases) (vkcomautocaptcha-1.5-fx.xpi)
-2. Зайти в Firefox и перейти по адресу `about:addons`
-3. Перенести в окошко скачанный файл
-4. Нажать на "Добавить"
+<a href="https://addons.mozilla.org/ru/firefox/addon/vkautocaptcha/"><img src="https://github.com/Defasium/vkCaptchaBreaker/raw/main/assets/firefox-addons.png" alt="Firefox add-ons"></a>
 
 ## Запуск и работа
 Для работы расширения необходимо нажать на него, чтобы серая иконка стала малиновой и всё
