@@ -33,6 +33,9 @@
 ### Установка для Firefox
 <a href="https://addons.mozilla.org/ru/firefox/addon/vkautocaptcha/"><img src="https://github.com/Defasium/vkCaptchaBreaker/raw/main/assets/firefox-addons.png" alt="Firefox add-ons"></a>
 
+### Установка для Opera
+<a href="https://addons.opera.com/en-gb/extensions/details/vkautocaptcha/"><img src="https://i.imgur.com/IYYsrwg.png" alt="Opera add-ons"></a>
+
 ## Запуск и работа
 Для работы расширения необходимо нажать на него, чтобы серая иконка стала малиновой и всё
 
