@@ -83,14 +83,17 @@
         const captchaForm = document.getElementsByClassName(DOM.popup);
         let submit_button = document.getElementsByClassName(DOM.submit_btn_1);
         let placeholder;
+        let num;
         if (captchaForm.length) {
-            if (document.getElementsByClassName('box_layout')[0].getElementsByTagName('button')[1] === undefined) {
-                submit_button = document.getElementsByClassName('box_layout')[2].getElementsByTagName('button')[1];;
+            if (captchaForm[0].getElementsByTagName('button')[1] === undefined) {
+                submit_button = captchaForm[2].getElementsByTagName('button')[1];
                 placeholder = document.getElementsByClassName('captcha')[0].getElementsByTagName('input')[0];
             } else {
-                placeholder = captchaForm[0].getElementsByTagName('input')[0];
-                submit_button = captchaForm[0].getElementsByTagName('button')[1];
+                for (var i = 0; i < 10; i++){if (document.getElementsByClassName("box_title")[i].textContent == 'Введите код с картинки') {num = i; break;}}
+                placeholder = captchaForm[num].getElementsByTagName('input')[0];
+                submit_button = captchaForm[num].getElementsByTagName('button')[1];
             }
+
         } else {
             placeholder = document.getElementsByName(DOM.captcha_key)[0];
             if (submit_button.length) {
@@ -126,7 +129,7 @@
         if (click) {
             submit_button.click();
             try {
-                const captcha_img = document.getElementsByClassName("captcha")[0].getElementsByTagName('img')[0];
+                const captcha_img = captchaForm[num].getElementsByTagName('img')[0];
                 if (captcha_img.length) {
                     if (captcha_img.src[0] !== 'd') {
                         bool_recognized = false;
