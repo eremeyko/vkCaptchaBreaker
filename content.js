@@ -57,7 +57,9 @@
     }
 
     async function wait_image(click = true) {
-        const img = document.getElementsByClassName("captcha")[0].getElementsByTagName('img')[0];
+        let num;
+        for (var i = 0; i < 10; i++){if (document.getElementsByClassName("box_title")[i].textContent == 'Введите код с картинки') {num = i; break;}}
+        const img = captchaForm[num].getElementsByTagName('img')[0];
         if (img == null) return true;
         if (img.src[0] !== 'd') {
             // Download image in background
