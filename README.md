@@ -30,11 +30,10 @@
 
 5. Перенести во окно браузера __Папку__ с расширениями
 
-### Установка для Firefox
+### Расширение в браузерных магазинах  
 <a href="https://addons.mozilla.org/ru/firefox/addon/vkautocaptcha/"><img src="https://github.com/Defasium/vkCaptchaBreaker/raw/main/assets/firefox-addons.png" alt="Firefox add-ons"></a>
-
-### Установка для Opera
 <a href="https://addons.opera.com/en-gb/extensions/details/vkautocaptcha/"><img src="https://i.imgur.com/BbflXWM.png" alt="Opera add-ons"></a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/vkautocaptcha/pdgcocihgpjcahmbkipnnjmbdkmmfbaf"><img src="https://i.imgur.com/ynvAp3h.png" alt="Edge add-ons"></a>
 
 ## Запуск и работа
 Для работы расширения необходимо нажать на него, чтобы серая иконка стала малиновой и всё
