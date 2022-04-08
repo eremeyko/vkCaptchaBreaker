@@ -57,6 +57,7 @@
     }
 
     async function wait_image(click = true) {
+        const captchaForm = document.getElementsByClassName(DOM.popup);
         let num;
         for (var i = 0; i < 10; i++){if (document.getElementsByClassName("box_title")[i].textContent == 'Введите код с картинки') {num = i; break;}}
         const img = captchaForm[num].getElementsByTagName('img')[0];
