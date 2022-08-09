@@ -37,6 +37,14 @@ chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set(prior.powers[0]);
 });
 
+chrome.runtime.onStartup.addListener(function() {
+    chrome.storage.sync.get('power', function(data) {
+        chrome.browserAction.setIcon(prior.icons[data.power]);
+        manageSession(data.power);
+        console.log('Load value and update icon: ' + data.power);
+    });
+});
+
 async function updateIcon(meta) {
     chrome.storage.sync.get('power', function(data) {
         const current = data.power ^ 1;

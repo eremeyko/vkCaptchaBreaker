@@ -57,10 +57,14 @@
     }
 
     async function wait_image(click = true) {
-        const captchaForm = document.getElementsByClassName(DOM.popup);
-        let num;
-        for (var i = 0; i < 10; i++){if (document.getElementsByClassName("box_title")[i].textContent == 'Введите код с картинки') {num = i; break;}}
-        const img = captchaForm[num].getElementsByTagName('img')[0];
+        let img;
+        for (const captchaForm of document.getElementsByClassName("box_title")) {
+            if (captchaForm.textContent == 'Введите код с картинки')
+            {
+                img = document.querySelector(".captcha > div:nth-child(1) > img:nth-child(1)")
+            }
+        }
+        
         if (img == null) return true;
         if (img.src[0] !== 'd') {
             // Download image in background
@@ -82,6 +86,7 @@
         return await recognize_captcha(img, click);
     }
 
+
     async function recognize_captcha(img, click) {
         const captchaForm = document.getElementsByClassName(DOM.popup);
         let submit_button = document.getElementsByClassName(DOM.submit_btn_1);
@@ -92,13 +97,18 @@
                 submit_button = captchaForm[2].getElementsByTagName('button')[1];
                 placeholder = document.getElementsByClassName('captcha')[0].getElementsByTagName('input')[0];
             } else {
-                for (var i = 0; i < 10; i++){if (document.getElementsByClassName("box_title")[i].textContent == 'Введите код с картинки') {num = i; break;}}
-                placeholder = captchaForm[num].getElementsByTagName('input')[0];
-                submit_button = captchaForm[num].getElementsByTagName('button')[1];
+                
+                for (const captchaFormXD of document.getElementsByClassName("box_title")) {
+                    if (captchaFormXD.textContent == 'Введите код с картинки')
+                    {
+                        placeholder = document.querySelector("input.big_text[placeholder='Введите код'][maxlength='7']");
+                        submit_button = captchaFormXD.parentNode.parentNode.getElementsByTagName('button')[1];
+                    }
+                }
             }
 
         } else {
-            placeholder = document.getElementsByName(DOM.captcha_key)[0];
+            placeholder = document.querySelector("input.big_text[placeholder='Введите код'][maxlength='7']");
             if (submit_button.length) {
                 submit_button = submit_button[1];
             } else {
@@ -132,7 +142,7 @@
         if (click) {
             submit_button.click();
             try {
-                const captcha_img = captchaForm[num].getElementsByTagName('img')[0];
+                const captcha_img = document.querySelector(".captcha > div:nth-child(1) > img:nth-child(1)")
                 if (captcha_img.length) {
                     if (captcha_img.src[0] !== 'd') {
                         bool_recognized = false;
@@ -174,12 +184,14 @@
     chrome.runtime.onMessage.addListener(iconCallback);
 
     async function manageObserver(mutations) {
-        if (document.getElementsByClassName("box_title").length === 2) {
-            if (document.getElementById("validation_skip")) {
-                document.getElementById("validation_skip").click();
-                    await new Promise(r => setTimeout(r, 500));
+        for await (const element of document.getElementsByClassName("box_title")) {
+            if (element.textContent === "Привязка номера телефона") {
+                if (document.getElementById("validation_skip")) {
+                    document.getElementById("validation_skip").click();
+                        await new Promise(r => setTimeout(r, 500));
                 }
             }
+        }
         if (document.getElementsByClassName("captcha").length === 0){
             data.flag = true;
             return;
