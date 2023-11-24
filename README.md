@@ -1,4 +1,5 @@
 # vkcomCaptchaBreaker (Автокапча для vk.com)
+## На данный момент рекомендуется использовать расширение с VPN!
 [__Оригинальный код от Defasium__](https://github.com/Defasium/vkCaptchaBreaker)
 # Введение
 
